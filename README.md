@@ -12,11 +12,11 @@ Feel free to cache to another form of local storage, e.g. registry, etc.
 
 First up, configure a few environment variables:
 ```bash
-# Your Keyrix account's DER encoded Ed25519 verify key
-export KEYRIX_VERIFY_KEY="MCowBQYDK2VwAyEA6GAeSLaTg7pSAkX9B5cemD0G0ixCV8/YIwRgFHnO54g="
+# Your LicenseGen account's DER encoded Ed25519 verify key
+export LICENSEGEN_VERIFY_KEY="MCowBQYDK2VwAyEA6GAeSLaTg7pSAkX9B5cemD0G0ixCV8/YIwRgFHnO54g="
 
-# Your Keyrix account ID (find yours at https://keyrix-admin.focusapps.app/settings)
-export KEYRIX_ACCOUNT_ID="1fddcec8-8dd3-4d8d-9b16-215cac0f9b52"
+# Your LicenseGen account ID (find yours at https://licensegen-admin.focusapps.app/settings)
+export LICENSEGEN_ACCOUNT_ID="1fddcec8-8dd3-4d8d-9b16-215cac0f9b52"
 ```
 
 You can either run each line above within your terminal session before
@@ -38,5 +38,5 @@ yarn start
 
 ## Questions?
 
-Reach out at [keyrix@focusapps.app](mailto:keyrix@focusapps.app) if you have any
+Reach out at [licensegen@focusapps.app](mailto:licensegen@focusapps.app) if you have any
 questions or concerns!

@@ -1,7 +1,7 @@
 require('dotenv').config()
 const {
-  KEYRIX_VERIFY_KEY,
-  KEYRIX_ACCOUNT_ID
+  LICENSEGEN_VERIFY_KEY,
+  LICENSEGEN_ACCOUNT_ID
 } = process.env
 
 const fetch = require('node-fetch')
@@ -43,7 +43,7 @@ function parseParameterizedHeader(header) {
 }
 
 // Verify the signature of a response. Returns void. Throws if invalid.
-// See: https://keyrix.focusapps.app/docs/api/#response-signatures
+// See: https://licensegen.focusapps.app/docs/api/#response-signatures
 async function verifyResponseSignature({ target, digest, date, signature }) {
   if (signature == null) {
     throw new Error('Signature was expected but is missing')
@@ -52,14 +52,14 @@ async function verifyResponseSignature({ target, digest, date, signature }) {
   // Rebuild the signing data
   const data = [
     `(request-target): ${target}`,
-    `host: keyrix-api.focusapps.app`,
+    `host: licensegen-api.focusapps.app`,
     `date: ${date}`,
     `digest: ${digest}`,
   ].join('\n')
 
   // Decode DER verify key
   const verifyKey = crypto.createPublicKey({
-    key: Buffer.from(KEYRIX_VERIFY_KEY, 'base64'),
+    key: Buffer.from(LICENSEGEN_VERIFY_KEY, 'base64'),
     format: 'der',
     type: 'spki',
   })
@@ -138,7 +138,7 @@ async function setCachedValidationResponse(key, { target, date, signature, body 
 
 // Performs a license key validation request. Returns a response.
 async function performLicenseKeyValidation(key) {
-  return fetch(`https://keyrix-api.focusapps.app/v1/accounts/${KEYRIX_ACCOUNT_ID}/licenses/actions/validate-key`, {
+  return fetch(`https://licensegen-api.focusapps.app/v1/accounts/${LICENSEGEN_ACCOUNT_ID}/licenses/actions/validate-key`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/vnd.api+json',
@@ -184,7 +184,7 @@ async function validateLicenseKey(key) {
   // Check if license is valid (and cache the response if it is)
   if (meta.valid) {
     const { signature } = parseParameterizedHeader(res.headers.get('keygen-signature'))
-    const target = `post /v1/accounts/${KEYRIX_ACCOUNT_ID}/licenses/actions/validate-key`
+    const target = `post /v1/accounts/${LICENSEGEN_ACCOUNT_ID}/licenses/actions/validate-key`
     const sha256 = crypto.createHash('sha256').update(body)
     const digest = `sha-256=${sha256.digest('base64')}`
     const date = res.headers.get('date')
