@@ -13,10 +13,10 @@ Feel free to cache to another form of local storage, e.g. registry, etc.
 First up, configure a few environment variables:
 ```bash
 # Your LicenseGen account's DER encoded Ed25519 verify key
-export LICENSEGEN_VERIFY_KEY="MCowBQYDK2VwAyEA6GAeSLaTg7pSAkX9B5cemD0G0ixCV8/YIwRgFHnO54g="
+export LICENSEGEN_VERIFY_KEY="MCowBQYDK2VwAyEAAC4XFZtDIf2HBf/rUuXCXBnYmZ4pMQxJ4193aYRL1Yc="
 
 # Your LicenseGen account ID (find yours at https://licensegen-admin.focusapps.app/settings)
-export LICENSEGEN_ACCOUNT_ID="1fddcec8-8dd3-4d8d-9b16-215cac0f9b52"
+export LICENSEGEN_ACCOUNT_ID="2ed45aa2-b1e9-4ba7-83bb-a037ccf5a85e"
 ```
 
 You can either run each line above within your terminal session before
