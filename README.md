@@ -33,7 +33,7 @@ Then run the script and input a license key:
 
 ```bash
 yarn start
-# => Enter your license key: DEMO-AABCCD-7F6E4A-E64012-340C88-V3
+# => Enter your license key: 80246B-1DE0D3-B22291-00B387-B9C4DD-V3
 ```
 
 ## Questions?
